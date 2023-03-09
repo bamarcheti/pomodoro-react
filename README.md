@@ -2,7 +2,7 @@
 
 Projeto construído para o desenvolvimento de um Pomodoro feito em React.js.
 
-**[🔗 Clique aqui para acessar o repositório com o Strapi](https://github.com/Bamarcheti/fullstack-strapi-nextjs)**
+**[🔗 Clique aqui para acessar o repositório](https://github.com/Bamarcheti/pomodoro-react)**
 
 
 ## **🛠 Tecnologias**
@@ -29,7 +29,7 @@ Projeto construído para o desenvolvimento de um Pomodoro feito em React.js.
 
 >- Entre na pasta para iniciar a execução `cd blog-next`.
 >- Instale os pacotes com `yarn install` ou `yarn`.
->- Execute `yarn run dev` para iniciar o servidor.
+>- Execute `yarn start` para iniciar o servidor.
 
 
 ## **💛 Contato**
