@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "editorconfig": "^1.0.1",
+    "eslint": "^8.33.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^3.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +39,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "autoprefixer": "^10.4.13",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-react": "^7.32.2",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.4"
   }
 }
