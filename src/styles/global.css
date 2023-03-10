@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .primary {
+    @apply bg-indigo-600 text-white;
+  }
+
+  .primary:hover {
+    @apply bg-indigo-400 text-white bg-opacity-90;
+  }
+
+  .secondary {
+    @apply bg-gray-500 text-white;
+  }
+
+  .secondary:hover {
+    @apply bg-gray-700 text-white bg-opacity-90;
+  }
+
+  .default {
+    @apply bg-zinc-800 text-white;
+  }
+
+  .default:hover {
+    @apply bg-zinc-600 text-white bg-opacity-90;
+  }
+
+  .error {
+    @apply bg-red-500 text-white;
+  }
+
+  .error:hover {
+    @apply bg-red-600 text-white bg-opacity-90;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #2B2B2B;
+}
+
+#root,
+body,
+html {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-feature-settings: 'lnum';
+  -moz-font-feature-settings: 'lnum';
+  font-feature-settings: 'lnum';
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
