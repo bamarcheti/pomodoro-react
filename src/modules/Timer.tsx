@@ -23,16 +23,18 @@ const Timer = ({ onClick }: ConfigTimerProps) => {
 
   return (
     <div className="flex flex-col items-center justify-center pt-10">
-      <CircularProgressbar
-        value={60}
-        text={`60%`}
-        styles={buildStyles({
-          pathColor: `rgb(62, 152, 199)`,
-          textColor: '#3e98c7',
-          trailColor: '#d6d6d6',
-          backgroundColor: '#3e98c7'
-        })}
-      />
+      <div>
+        <CircularProgressbar
+          value={60}
+          text={`60%`}
+          styles={buildStyles({
+            pathColor: `rgb(62, 152, 199)`,
+            textColor: '#3e98c7',
+            trailColor: '#d6d6d6',
+            backgroundColor: '#3e98c7'
+          })}
+        />
+      </div>
       <div className="flex flex-row mt-5 justify-center gap-2">
         <div className="flex gap-3">
           {isPaused ? (
