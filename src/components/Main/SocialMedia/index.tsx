@@ -1,8 +1,8 @@
-import discord from './assets/discord.svg';
-import globe from './assets/globe.svg';
-import gmail from './assets/gmail.svg';
-import instagram from './assets/instagram.svg';
-import linkedin from './assets/linkedin.svg';
+import discord from '../assets/discord.svg';
+import globe from '../assets/globe.svg';
+import gmail from '../assets/gmail.svg';
+import instagram from '../assets/instagram.svg';
+import linkedin from '../assets/linkedin.svg';
 
 const SocialMedia = () => {
   return (

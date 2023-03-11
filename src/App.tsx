@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import MainLayout from './components/Main/MainLayout';
+import MainLayout from './components/Main';
 import Settings from './components/Settings';
 import Timer from './modules/Timer';
 
