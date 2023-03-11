@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#3e98c7',
-        secondary: '#858584',
+        secondary: '#3e98c7',
         default: '#2B2B2B',
         card: '#3B3B3B',
         error: '#EF4444'
