@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MainLayout from './components/Main/MainLayout';
 import Settings from './components/Settings';
 import Timer from './modules/Timer';
 
@@ -6,11 +7,13 @@ const App = () => {
   const [showSettings, setShowSettings] = useState(false);
   return (
     <div className="App ">
-      {showSettings ? (
-        <Settings onClick={() => setShowSettings(false)} />
-      ) : (
-        <Timer onClick={() => setShowSettings(true)} />
-      )}
+      <MainLayout>
+        {showSettings ? (
+          <Settings onClick={() => setShowSettings(false)} />
+        ) : (
+          <Timer onClick={() => setShowSettings(true)} />
+        )}
+      </MainLayout>
     </div>
   );
 };
