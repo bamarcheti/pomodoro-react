@@ -1,8 +1,7 @@
+import { ArrowPathIcon, Cog8ToothIcon, PauseIcon, PlayIcon } from '@heroicons/react/24/outline';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Footer from '../components/Footer';
-// import Tags from '../components/Tags';
-import { ArrowPathIcon, Cog8ToothIcon, PauseIcon, PlayIcon } from '@heroicons/react/24/outline';
 
 interface ConfigTimerProps {
   onClick: () => void;
