@@ -1,22 +1,17 @@
-import { useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Footer from '../components/Footer';
 // import Tags from '../components/Tags';
 import { ArrowPathIcon, Cog8ToothIcon, PauseIcon, PlayIcon } from '@heroicons/react/24/outline';
-const Timer = () => {
-  const [valueDefault, setValueDefault] = useState('');
-  const [desiredValue, setdesiredValue] = useState('');
 
+interface ConfigTimerProps {
+  onClick: () => void;
+}
+
+const Timer = ({ onClick }: ConfigTimerProps) => {
   return (
     <div className="flex flex-col justify-center pt-10">
       <div className="flex flex-col items-center">
-        {/*   <div className="flex flex-col gap-1.5">
-          <h3 className="flex justify-center align-center text-base xl:text-lg lg:text-lg font-bold text-white">
-            Timer
-          </h3>
-        </div>
-        <Tags /> */}
         <div>
           <CircularProgressbar
             value={60}
@@ -44,19 +39,12 @@ const Timer = () => {
               <Cog8ToothIcon
                 className="h-6 w-6 text-primary inline-block cursor-pointer"
                 title="Settings"
+                onClick={onClick}
               />
             </div>
           </div>
         </div>
-        {/* <div className="flex flex-col">
-          <input
-            onChange={(e) => {
-              setValueDefault(e.target.value);
-            }}
-          />
-        </div>*/}
       </div>
-
       <Footer />
     </div>
   );
