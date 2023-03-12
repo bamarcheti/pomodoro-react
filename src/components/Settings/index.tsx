@@ -3,11 +3,31 @@ import { useState } from 'react';
 
 interface ConfigSettingsProps {
   onClick: () => void;
+  workMinutes: number;
+  breakMinutes: number;
+  onWorkMinutesChange: (value: number) => void;
+  onBreakMinutesChange: (value: number) => void;
 }
 
-const Settings = ({ onClick }: ConfigSettingsProps) => {
-  const [workMinutes, setWorkMinutes] = useState(1);
-  const [breakMinutes, setBreakMinutes] = useState(1);
+const Settings = ({
+  onClick,
+  workMinutes,
+  breakMinutes,
+  onWorkMinutesChange,
+  onBreakMinutesChange
+}: ConfigSettingsProps) => {
+  const [valueWorkMinuts, setValueWorkMinuts] = useState(workMinutes);
+  const [valueBreakMinuts, setValueBreakMinuts] = useState(breakMinutes);
+
+  const handleWorkMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onWorkMinutesChange(parseInt(e.target.value));
+    setValueWorkMinuts(parseInt(e.target.value));
+  };
+
+  const handleBreakMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onBreakMinutesChange(parseInt(e.target.value));
+    setValueBreakMinuts(parseInt(e.target.value));
+  };
 
   return (
     <div className="flex flex-col justify-center text-left mt-2 mx-96 py-9">
@@ -26,13 +46,11 @@ const Settings = ({ onClick }: ConfigSettingsProps) => {
               min={1}
               max={120}
               value={workMinutes}
-              onChange={(event) => {
-                setWorkMinutes(event.target.valueAsNumber);
-              }}
+              onChange={handleWorkMinutesChange}
             />
           </section>
           <section>
-            <p>{workMinutes}: 00</p>
+            <p>{valueWorkMinuts}:00</p>
           </section>
         </div>
 
@@ -45,13 +63,11 @@ const Settings = ({ onClick }: ConfigSettingsProps) => {
               min={1}
               max={120}
               value={breakMinutes}
-              onChange={(event) => {
-                setBreakMinutes(event.target.valueAsNumber);
-              }}
+              onChange={handleBreakMinutesChange}
             />
           </section>
           <section>
-            <p>{breakMinutes}: 00</p>
+            <p>{valueBreakMinuts}:00</p>
           </section>
         </div>
       </div>

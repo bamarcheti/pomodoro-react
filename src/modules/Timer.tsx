@@ -1,33 +1,94 @@
 import { Cog8ToothIcon, PauseIcon, PlayIcon } from '@heroicons/react/24/outline';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 interface ConfigSettingsProps {
   onClick: () => void;
+  workMinutes: number;
+  breakMinutes: number;
 }
-
-const Timer = ({ onClick }: ConfigSettingsProps) => {
+const Timer = ({ onClick, workMinutes, breakMinutes }: ConfigSettingsProps) => {
   const [isPaused, setIsPaused] = useState(false);
+  const [mode, setMode] = useState<'work' | 'break'>('work');
   const [secondsLeft, setSecondsLeft] = useState(0);
+  const secondsLeftRef = useRef(0);
+  const isPausedRef = useRef(false);
+
+  if ('Notification' in window) {
+    Notification.requestPermission();
+  }
+
+  const switchMode = () => {
+    const nextMode = mode === 'work' ? 'break' : 'work';
+    const nextSeconds = nextMode === 'work' ? workMinutes * 60 : breakMinutes * 60;
+    setMode(nextMode);
+    setSecondsLeft(nextSeconds);
+  };
+
+  const initTimer = () => {
+    setSecondsLeft(workMinutes * 60);
+    secondsLeftRef.current = workMinutes * 60;
+  };
+
+  let notificationTrigger = false;
+  const tick = () => {
+    if (secondsLeftRef.current > 0) {
+      secondsLeftRef.current--;
+      setSecondsLeft(secondsLeftRef.current);
+      notificationTrigger = false;
+    }
+
+    if (secondsLeftRef.current === 0 && !notificationTrigger) {
+      new Audio('../assets/hint.mp3').play();
+      new Notification('Timer finished!', { body: `The ${mode} time is over!` });
+      notificationTrigger = true;
+      switchMode();
+    }
+  };
+
+  const totalSeconds = mode === 'work' ? workMinutes * 60 : breakMinutes * 60;
+  const percentage = Math.round((secondsLeft / totalSeconds) * 100);
+
+  const minutes = Math.floor(secondsLeft / 60);
+  const seconds = secondsLeft % 60;
+  const secondsString = seconds < 10 ? `0${seconds}` : `${seconds}`;
+
+  const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  const timeString = `${minutesString}:${secondsString}`;
 
   useEffect(() => {
-    setTimeout(() => {
-      if (isPaused) {
-        return;
-      }
-      if (secondsLeft === 0) {
-        return switchMode();
-      }
-    }, 2500);
-  }, [isPaused]);
+    if (!isPaused) {
+      const timerId = setTimeout(() => {
+        if (secondsLeft === 0) {
+          return switchMode();
+        }
+        tick();
+      }, 1000);
+      return () => clearTimeout(timerId);
+    }
+  }, [isPaused, secondsLeft]);
+
+  useEffect(() => {
+    initTimer();
+  }, []);
+
+  const handlePauseClick = () => {
+    setIsPaused(true);
+    isPausedRef.current = true;
+  };
+
+  const handlePlayClick = () => {
+    setIsPaused(false);
+    isPausedRef.current = false;
+  };
 
   return (
     <div className="flex flex-col items-center justify-center pt-10">
       <div>
         <CircularProgressbar
-          value={60}
-          text={`60%`}
+          value={percentage}
+          text={timeString}
           styles={buildStyles({
             pathColor: `rgb(62, 152, 199)`,
             textColor: '#3e98c7',
@@ -42,10 +103,7 @@ const Timer = ({ onClick }: ConfigSettingsProps) => {
             <PlayIcon
               className="h-6 w-6 text-primary inline-block cursor-pointer"
               title="Play"
-              onClick={() => {
-                setIsPaused(false);
-                isPausedRef.current = false;
-              }}
+              onClick={handlePlayClick}
             />
           ) : (
             <div className="flex flex-row">

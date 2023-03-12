@@ -48,6 +48,14 @@ const SocialMedia = () => {
             title="Gmail"
           />
         </a>
+        {/* <a href="mailto:bmarchetifiorin@gmail.com">
+          <img
+            src={github}
+            className="transition w-8 h-8 ease-in-out hover:-translate-1 hover:scale-110"
+            alt="github"
+            title="Github"
+          />
+        </a> */}
       </div>
     </div>
   );
