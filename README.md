@@ -1,9 +1,13 @@
 # __Pomodoro em ReactJS__
 
+![preview](./.github/preview.png)
+
 Projeto construído para o desenvolvimento de um Pomodoro feito em React.js.
 
-**[🔗 Clique aqui para acessar](https://pomodoro-react-bamarcheti.vercel.app/)**
 
+**[🔗 Clique aqui para acessar o projeto rodando](https://pomodoro-react-bamarcheti.vercel.app/)**
+
+**[🔗 Clique aqui para acessar o repositório do projeto](https://github.com/Bamarcheti/pomodoro-react)**
 
 ## **🛠 Tecnologias**
 
