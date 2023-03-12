@@ -9,6 +9,8 @@ Projeto construído para o desenvolvimento de um Pomodoro feito em React.js.
 
 **[🔗 Clique aqui para acessar o repositório do projeto](https://github.com/Bamarcheti/pomodoro-react)**
 
+**[🔗 Clique aqui para acessar o link do vídeo no YouTube ](https://youtu.be/DizIkMy8Uqg)**
+
 ## **🛠 Tecnologias**
 
 >### *Frontend*
