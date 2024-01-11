@@ -1,5 +1,5 @@
-import Header from './components/Header';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 interface Props {
   children: React.ReactNode;
@@ -7,9 +7,9 @@ interface Props {
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex flex-col justify-between w-full h-screen">
       <Header />
-      <div className="grow justify-center py-3 xl:p-12 mt-2 rounded-sm px-14">{children}</div>
+      <div className="flex justify-center items-center">{children}</div>
       <Footer />
     </div>
   );
